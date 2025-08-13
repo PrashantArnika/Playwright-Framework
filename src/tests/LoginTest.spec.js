@@ -9,7 +9,7 @@ test.skip('login test', async ({ page }) => {
   const loginPage = new LoginPage(page);
   await loginPage.goTo();
   const homePage = await loginPage.login(decrypt(process.env.username), decrypt(process.env.password));
-  //const homePage = await loginPage.login("kadusprashant-xdyv@force.com", "Arnabc#7633");
+  //const homePage = await loginPage.login("kadusprashant-xdyv@force.com", "");
   const title = await homePage.getTitle();
   expect(title).toContain("Salesforce")
 });
@@ -31,7 +31,7 @@ test('Sample DD test', async ({ page }) => {
   const input = "Henry";
   const loginPage = new LoginPage(page);
   await loginPage.goTo();
-  const homePage = await loginPage.login("kadusprashant-xdyv@force.com", "Arnabc#7633");
+  const homePage = await loginPage.login("kadusprashant-xdyv@force.com", "");
   await homePage.search(input);
 });
 
@@ -40,7 +40,7 @@ for (const contact of cdata) {
     //const input = "Henry";
     const loginPage = new LoginPage(page);
     await loginPage.goTo();
-    const homePage = await loginPage.login("kadusprashant-xdyv@force.com", "Arnabc#7633");
+    const homePage = await loginPage.login("kadusprashant-xdyv@force.com", "");
     await homePage.search(contact.firstName);
   });
 }

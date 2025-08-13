@@ -6,7 +6,7 @@ test('sample DD test', async ({ page }) => {
   const lname = "Clarke";
   const loginPage = new LoginPage(page);
   await loginPage.goTo();
-  const homePage = await loginPage.login("kadusprashant-xdyv@force.com", "Arnabc#7633");
+  const homePage = await loginPage.login("kadusprashant-xdyv@force.com", "");
   const contactPage = await homePage.clickContacts();
   contactPage.addNewContact(fname,lname);
 });
