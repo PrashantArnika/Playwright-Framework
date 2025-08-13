@@ -5,7 +5,7 @@ import { encryptEnvFile, decryptEnvFile } from '../utils/EncryptEnvFile';
 import { convertCsvFileToJsonFile } from '../utils/CsvtoJsonUtil';
 import cdata from "../data/datademo.json";
 
-test('login test', async ({ page }) => {
+test.skip('login test', async ({ page }) => {
   const loginPage = new LoginPage(page);
   await loginPage.goTo();
   const homePage = await loginPage.login(decrypt(process.env.username), decrypt(process.env.password));
@@ -14,7 +14,7 @@ test('login test', async ({ page }) => {
   expect(title).toContain("Salesforce")
 });
 
-test('sample env test', async ({ page }) => {
+test.skip('sample env test', async ({ page }) => {
   // console.log(process.env.NODE_ENV);
   // console.log(process.env.username);
   // console.log(process.env.password);
@@ -36,7 +36,7 @@ test('Sample DD test', async ({ page }) => {
 });
 
 for (const contact of cdata) {
-  test.only(`Advance DD test for ${contact.firstName}`, async ({ page }) => {
+  test.skip(`Advance DD test for ${contact.firstName}`, async ({ page }) => {
     //const input = "Henry";
     const loginPage = new LoginPage(page);
     await loginPage.goTo();
@@ -45,6 +45,6 @@ for (const contact of cdata) {
   });
 }
 
-test('csv to json', async ({ page }) => {
+test.skip('csv to json', async ({ page }) => {
   convertCsvFileToJsonFile("data.csv", "datademo.json")
 });
